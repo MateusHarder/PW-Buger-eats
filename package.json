@@ -1,0 +1,20 @@
+{
+  "name": "PW-Buger-eats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Walterharder/PW-Buger-eats.git",
+  "author": "Walter Mateus Harder <walter.harder@incentivar.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.2"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:ui": "playwright test --ui",
+    "test:codegen": "playwright codegen"
+  }
+}
