@@ -55,7 +55,7 @@ export class Cadastro {
         await this.elements.inputAddressNumber.fill(numero);
     }
 
-    async validadeAdress(address: string) {
+    async validateAddress(address: string) {
         await expect(this.elements.inputAdress).toHaveValue(address);
     }
 
@@ -63,11 +63,11 @@ export class Cadastro {
         await this.elements.inputAddressDetails.fill(adressDetails);
     }
 
-    async validadeDistrict(bairro: string) {
+    async validateDistrict(bairro: string) {
         await expect(this.elements.inputDistrict).toHaveValue(bairro);
     }
 
-    async validadeCityUf(cidade_uf: string) {
+    async validateCityUf(cidade_uf: string) {
         await expect(this.elements.inputCityUf).toHaveValue(cidade_uf);
     }
 
@@ -105,7 +105,7 @@ export class Cadastro {
         await this.elements.buttonRegister.click();
     }
 
-    async validadeSuccess(success: string) {
+    async validateSuccess(success: string) {
         await expect(this.elements.messageSuccess).toHaveText(success);
     }
 
@@ -113,39 +113,39 @@ export class Cadastro {
         await this.elements.buttonConfirm.click();
     }
 
-    async validadeNameRequired(nameRequired: string) {
+    async validateNameRequired(nameRequired: string) {
         await expect(this.elements.messageNameRequired).toHaveText(nameRequired);
     }
 
-    async validadeCPFRequired(cpfRequired: string) {
+    async validateCPFRequired(cpfRequired: string) {
         await expect(this.elements.messageCPFerror).toHaveText(cpfRequired);
     }
 
-    async validadeCPFInvalid(cpfInvalid: string) {
+    async validateCPFInvalid(cpfInvalid: string) {
         await expect(this.elements.messageCPFerror).toHaveText(cpfInvalid);
     }
 
-    async validadeEmailRequired(emailRequired: string) {
+    async validateEmailRequired(emailRequired: string) {
         await expect(this.elements.messageEmailRequired).toHaveText(emailRequired);
     }
 
-    async validadeEmailInvalid(EmailInvalid: string) {
-        await expect(this.elements.messageEmailRequired).toHaveText(EmailInvalid);
+    async validateEmailInvalid(emailInvalid: string) {
+        await expect(this.elements.messageEmailRequired).toHaveText(emailInvalid);
     }
 
-    async validadeCEPRequired(cepRequired: string) {
+    async validateCEPRequired(cepRequired: string) {
         await expect(this.elements.messageCEPRequired).toHaveText(cepRequired);
     }
 
-    async validadeAddressNumberRequired(addressRequired: string) {
+    async validateAddressNumberRequired(addressRequired: string) {
         await expect(this.elements.messageAddressNumberRequired).toHaveText(addressRequired);
     }
 
-    async validadeDeliveryRequired(deliveryRequired: string) {
+    async validateDeliveryRequired(deliveryRequired: string) {
         await expect(this.elements.messageDeliveryRequired).toHaveText(deliveryRequired);
     }
 
-    async validadeCNHRequired(cnhRequired: string) {
+    async validateCNHRequired(cnhRequired: string) {
         await expect(this.elements.messageCNHRequired).toHaveText(cnhRequired);
     }
 }
