@@ -1,16 +1,28 @@
 import { test } from "@playwright/test";
+import { Cadastro } from "../support/pages/cadastro/actions";
+import { Home } from "../support/pages/home/actions";
+import cadastroData from '../fixture/cadastroData.json' assert { type: 'json' };
+
+let cadastro: Cadastro;
+let home: Home;
+
+test.beforeEach(async ({ page }) => {
+    cadastro = new Cadastro(page);
+    home = new Home(page);
+    await cadastro.accessRegister();
+})
+
 
 test.describe('Cadastro', () => {
 
-    test.beforeEach(async ({ page }) => {
-        await page.goto('https://buger-eats.vercel.app');
-    })
-
     test('Validar acesso a tela de Cadastro', async ({ page }) => {
+        await cadastro.validateAccessRegister();
     })
 
 
     test('Validar o campo Nome Completo como obrigatório.', async ({ page }) => {
+        await cadastro.clickButtonRegister();
+        await cadastro.validateNameRequired(cadastroData.nameRequired);
     })
 
     test('Validar o campo CPF como obrigatório.', async ({ page }) => {
