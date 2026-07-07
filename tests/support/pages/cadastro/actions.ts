@@ -1,5 +1,6 @@
 import { Page, expect } from '@playwright/test';
 import { getCadastroElements } from './elements';
+import path from 'path';
 
 export class Cadastro {
     readonly page: Page;
@@ -9,6 +10,7 @@ export class Cadastro {
         this.page = page;
         this.elements = getCadastroElements(page);
     }
+    
 
     async accessRegister() {
         await this.page.goto('/deliver');
@@ -84,13 +86,13 @@ export class Cadastro {
     }
 
     async fillImageCnh(cnh: string) {
-        // Assuming images are in a folder named 'images' in the root or similar. 
-        // Playwright resolves relative paths from CWD.
-        await this.elements.inputImage.setInputFiles('images/' + cnh);
+        const imagem = path.join(__dirname, '../../images', cnh);
+        await this.elements.inputImage.setInputFiles(imagem);
     }
 
     async fillArquivo(arquivo: string) {
-        await this.elements.inputImage.setInputFiles('arquivos/' + arquivo);
+        const file = path.join(__dirname, '../../arquivos', arquivo)
+        await this.elements.inputImage.setInputFiles(file);
     }
 
     async validateAtrrImage() {
