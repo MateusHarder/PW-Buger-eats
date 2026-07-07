@@ -7,7 +7,9 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.56.0",
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "dotenv": "^17.4.2",
+    "faker-br": "^0.4.1"
   },
   "scripts": {
     "test": "playwright test",
@@ -16,5 +18,8 @@
     "test:report": "playwright show-report",
     "test:ui": "playwright test --ui",
     "test:codegen": "playwright codegen"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
   }
 }
