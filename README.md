@@ -1,109 +1,90 @@
 # PW-Buger-eats
 
-Projeto de testes automatizados end-to-end (E2E) para o aplicativo Buger Eats utilizando Playwright.
+Projeto de testes automatizados end-to-end (E2E) para o fluxo de cadastro do aplicativo Buger Eats, desenvolvido com Playwright e TypeScript.
 
-## 📋 Sobre o Projeto
+## Sobre o projeto
 
-Este projeto contém testes automatizados para validar funcionalidades do aplicativo Buger Eats. Os testes são desenvolvidos usando Playwright, uma ferramenta moderna e confiável para automação de testes em navegadores.
+Este repositório contém cenários de teste para validar funcionalidades principais da aplicação, com foco em cadastro e navegação. A estrutura foi organizada com o padrão Page Object Model (POM) para facilitar manutenção e reutilização de código.
 
-## 🛠️ Tecnologias
+## Tecnologias
 
-- **Playwright** - Framework de automação de testes
-- **TypeScript** - Linguagem de programação
-- **Node.js** - Ambiente de execução
-- **Yarn** - Gerenciador de pacotes
+- Playwright
+- TypeScript
+- Node.js
+- Faker e faker-br
+- dotenv
 
-## 📁 Estrutura do Projeto
+## Pré-requisitos
 
-```
-PW-Buger-eats/
-├── tests/
-│   ├── e2e/              # Testes end-to-end
-│   ├── fixture/          # Fixtures e dados de teste
-│   └── support/
-│       ├── helpers/      # Funções auxiliares
-│       └── pages/        # Page Object Model
-│           ├── cadastro/ # Páginas relacionadas ao cadastro
-│           └── home/     # Páginas relacionadas à home
-├── playwright.config.ts  # Configuração do Playwright
-├── package.json          # Dependências e scripts
-└── README.md            # Este arquivo
-```
-
-## 🚀 Instalação
-
-### Pré-requisitos
-
-- Node.js (versão 18 ou superior)
+- Node.js 18 ou superior
 - Yarn
 
-### Passos para instalação
+## Instalação
 
 1. Clone o repositório:
+
 ```bash
 git clone https://github.com/Walterharder/PW-Buger-eats.git
 ```
 
-2. Entre no diretório do projeto:
+2. Entre na pasta do projeto:
+
 ```bash
 cd PW-Buger-eats
 ```
 
 3. Instale as dependências:
+
 ```bash
 yarn install
 ```
 
 4. Instale os navegadores do Playwright:
+
 ```bash
 npx playwright install
 ```
 
-## ⚙️ Configuração
+## Como executar os testes
 
-O arquivo `playwright.config.ts` contém as configurações do projeto:
-
-- **Navegadores configurados**: Chromium, Firefox e WebKit
-- **Modo paralelo**: Habilitado para execução mais rápida
-- **Retry**: Configurado para 2 tentativas em ambiente CI
-- **Reporter**: HTML para visualização de relatórios
-- **Trace**: Habilitado para retentativas de testes falhados
-
-## 📝 Scripts Disponíveis - 🧪 Executando os Testes
+Os scripts disponíveis estão definidos no arquivo package.json:
 
 | Script | Descrição |
 |--------|-----------|
 | `yarn test` | Executa todos os testes |
-| `yarn test:headed` | Executa testes com interface gráfica visível |
-| `yarn test:debug` | Executa testes em modo debug |
-| `yarn test:report` | Abre o relatório HTML dos testes |
-| `yarn test:ui` | Executa testes com interface interativa |
-| `yarn test:codegen` | Gera código de teste automaticamente |
+| `yarn test:headed` | Executa os testes com a interface visível |
+| `yarn test:debug` | Executa os testes em modo debug |
+| `yarn test:report` | Abre o relatório HTML gerado |
+| `yarn test:ui` | Abre a interface interativa do Playwright |
+| `yarn test:codegen` | Gera testes automaticamente a partir da navegação |
 
-## 🏗️ Arquitetura
+## Estrutura do projeto
 
-O projeto utiliza o padrão **Page Object Model (POM)**, que organiza os elementos e ações de cada página em classes separadas, facilitando a manutenção e reutilização do código.
+```text
+PW-Buger-eats/
+├── tests/
+│   ├── e2e/                # Cenários de teste
+│   ├── fixture/            # Dados e fixtures de teste
+│   └── support/
+│       ├── helpers/        # Funções auxiliares
+│       └── pages/          # Page Object Model
+│           ├── cadastro/   # Objetos de página do fluxo de cadastro
+│           └── home/       # Objetos de página da home
+├── playwright.config.ts    # Configuração do Playwright
+├── package.json            # Dependências e scripts
+└── README.md               # Documentação do projeto
+```
 
-### Estrutura de Pastas
+## Observações
 
-- **tests/e2e/**: Contém os arquivos de teste propriamente ditos
-- **tests/support/pages/**: Contém as classes Page Object Model
-- **tests/support/helpers/**: Contém funções auxiliares reutilizáveis
-- **tests/fixture/**: Contém fixtures e dados de teste
+- Os testes utilizam fixtures e dados gerados para simular diferentes cenários.
+- O projeto já está preparado para gerar relatórios HTML e traces em caso de falha.
 
-## 👤 Autor
+## Autor
 
-**Walter Mateus Harder**
-- Email: walter.harder@incentivar.io
-- GitHub: [@Walterharder](https://github.com/Walterharder)
+Walter Mateus Harder
 
-## 📄 Licença
+## Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 🔗 Links Úteis
-
-- [Documentação do Playwright](https://playwright.dev/)
-- [Guia de Testes do Playwright](https://playwright.dev/docs/intro)
-- [Repositório do Projeto](https://github.com/Walterharder/PW-Buger-eats.git)
+Este projeto está licenciado sob a licença MIT.
 
