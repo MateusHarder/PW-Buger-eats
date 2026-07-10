@@ -11,13 +11,27 @@ Este repositório contém cenários de teste para validar funcionalidades princi
 - Playwright
 - TypeScript
 - Node.js
+- Yarn
 - Faker e faker-br
 - dotenv
+- Allure Playwright
+
+## Dependências principais
+
+As dependências do projeto são definidas no arquivo package.json e incluem:
+
+- @playwright/test: execução dos testes E2E
+- @types/node: tipagem para Node.js
+- dotenv: leitura do arquivo .env
+- faker-br: geração de dados brasileiros falsos
+- allure-playwright e allure-js-commons: geração de relatórios Allure
+- @faker-js/faker: biblioteca adicional para geração de dados
 
 ## Pré-requisitos
 
-- Node.js 18 ou superior
-- Yarn
+- Node.js 20 ou superior
+- Yarn 1.x
+- Git
 
 ## Instalação
 
@@ -33,16 +47,35 @@ git clone https://github.com/Walterharder/PW-Buger-eats.git
 cd PW-Buger-eats
 ```
 
-3. Instale as dependências:
+3. Instale o Yarn, se ainda não tiver:
+
+```bash
+corepack enable
+corepack prepare yarn@1.22.22 --activate
+```
+
+4. Instale as dependências do projeto:
 
 ```bash
 yarn install
 ```
 
-4. Instale os navegadores do Playwright:
+5. Instale os navegadores do Playwright:
 
 ```bash
-npx playwright install
+yarn playwright install --with-deps
+```
+
+6. Crie o arquivo .env na raiz do projeto com a URL base da aplicação:
+
+```env
+BASE_URL=https://buger-eats.vercel.app
+```
+
+7. Opcionalmente, para gerar o relatório Allure:
+
+```bash
+yarn test:allure
 ```
 
 ## Como executar os testes
