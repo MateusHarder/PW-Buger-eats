@@ -27,7 +27,7 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: corepack enable && yarn install --frozen-lockfile
+        run: corepack enable && yarn install --no-frozen-lockfile
 
       - name: Install Allure CLI
         run: yarn add -D allure-commandline
