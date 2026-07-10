@@ -96,3 +96,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Publish deployed page URL
+        if: ${{ success() }}
+        run: |
+          echo "Página publicada: ${{ steps.deployment.outputs.page_url }}"
+          echo "Página disponível em: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
