@@ -8,6 +8,9 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^24.7.2",
+    "allure-commandline": "^2.43.0",
+    "allure-js-commons": "^3.10.2",
+    "allure-playwright": "^3.10.2",
     "dotenv": "^17.4.2",
     "faker-br": "^0.4.1"
   },
@@ -17,7 +20,9 @@
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
     "test:ui": "playwright test --ui",
-    "test:codegen": "playwright codegen"
+    "test:codegen": "playwright codegen",
+    "test:allure": "playwright test --reporter=line,allure-playwright",
+    "test:allure:report": "npx allure serve allure-results"
   },
   "dependencies": {
     "@faker-js/faker": "^10.4.0"

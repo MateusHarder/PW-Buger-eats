@@ -29,15 +29,24 @@ jobs:
       - name: Install dependencies
         run: corepack enable && yarn install --frozen-lockfile
 
+      - name: Install Allure CLI
+        run: yarn add -D allure-commandline
+
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
         run: yarn test
 
+      - name: Generate Allure report
+        if: ${{ !cancelled() }}
+        run: yarn allure generate allure-results --clean -o allure-report
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: playwright-report/
+          path: |
+            playwright-report/
+            allure-report/
           retention-days: 30

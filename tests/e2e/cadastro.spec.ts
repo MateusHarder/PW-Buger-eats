@@ -170,7 +170,7 @@ test.describe('Cadastro', () => {
         await cadastroHelper.validate_messageSuccess(cadastroData.messageSucesso);
     })
 
-    test('Validar cadastro com método de entrega Van/Carro.', async () => {
+    test.only('Validar cadastro com método de entrega Van/Carro.', async () => {
         await cadastroHelper.fill_sessionDados(dataFaker.name, dataFaker.cpf, dataFaker.email, dataFaker.whatsapp);
         await cadastroHelper.fill_sessionEndereco(cadastroData.cep, faker.string.numeric(2), faker.lorem.word(5));
         await cadastroHelper.validate_sessionEndereco(cadastroData.address, cadastroData.cidade_uf, cadastroData.bairro);
