@@ -1,5 +1,8 @@
 name: Playwright Tests
 
+env:
+  BASE_URL: ${{ vars.BASE_URL || 'https://buger-eats.vercel.app' }}
+
 on:
   push:
     branches:
