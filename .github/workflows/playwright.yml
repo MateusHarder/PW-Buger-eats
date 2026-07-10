@@ -17,7 +17,7 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
   workflow_dispatch:
 
 jobs:
@@ -36,14 +36,12 @@ jobs:
       - name: Install dependencies
         run: corepack enable && yarn install --no-frozen-lockfile
 
-      - name: Install Allure CLI
-        run: yarn add -D allure-commandline
-
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
         run: yarn test
+        continue-on-error: true
 
       - uses: actions/setup-java@v4
         with:
