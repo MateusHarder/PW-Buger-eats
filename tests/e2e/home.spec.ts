@@ -1,6 +1,6 @@
 import { test } from "@playwright/test";
 import { Home } from "../support/pages/home/actions";
-import homeData from '../fixture/homeData.json' assert { type: 'json' };
+import homeData from '../fixture/homeData.json';
 
 let home: Home;
 
