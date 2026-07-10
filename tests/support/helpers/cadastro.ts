@@ -1,6 +1,27 @@
 import { Page, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 import { getCadastroElements } from '../pages/cadastro/elements';
 import { Cadastro } from '../pages/cadastro/actions';
+
+export function gerarCPFValido(): string {
+    const base = faker.string.numeric(9);
+
+    const calcularDigito = (cpfSemDigito: string) => {
+        let soma = 0;
+
+        for (let i = 0; i < cpfSemDigito.length; i++) {
+            soma += Number(cpfSemDigito[i]) * (cpfSemDigito.length + 1 - i);
+        }
+
+        const resto = soma % 11;
+        return resto < 2 ? '0' : String(11 - resto);
+    };
+
+    const digito1 = calcularDigito(base);
+    const digito2 = calcularDigito(base + digito1);
+
+    return `${base}${digito1}${digito2}`;
+}
 
 export class CadastroHelper {
     readonly page: Page;
@@ -31,7 +52,7 @@ export class CadastroHelper {
         await this.cadastro.validateAddress(address);
         await this.cadastro.validateCityUf(city);
         await this.cadastro.validateDistrict(bairro);
-        
+
     }
 
     async fill_entregaMoto(cnh: string) {

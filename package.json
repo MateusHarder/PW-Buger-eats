@@ -6,7 +6,7 @@
   "author": "Walter Mateus Harder <walter.harder@incentivar.io>",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.56.0",
+    "@playwright/test": "^1.61.1",
     "@types/node": "^24.7.2",
     "dotenv": "^17.4.2",
     "faker-br": "^0.4.1"
